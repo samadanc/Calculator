@@ -6,8 +6,8 @@ import java.util.ArrayList;
 /**
  * Write a description of class GUI here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Samad alias Nyein Chan
+ * @version (18th August 2019)
  */
 public class GUI
 {
@@ -15,7 +15,7 @@ public class GUI
     private JFrame frame;
     private Container contentPane;
     private JTextField output;
-    private Operators op;
+    private Pemdas pemdas;
     /**
      * Constructor for objects of class GUI
      */
@@ -58,7 +58,6 @@ public class GUI
     
     private void about(){
         JOptionPane.showMessageDialog(frame, "It's a Calculator","Calculator", JOptionPane.INFORMATION_MESSAGE);
-        
     }
     
     private void makeContent(){
@@ -214,17 +213,19 @@ public class GUI
     }
     
     private void equals(){
-        op = new Operators();
         String out = output.getText();
-        
-        double finalDoubleOut = op.antiConcatinator(out);
-        String finalOut = Double.toString(finalDoubleOut);
+        String finalOut = getAnswer(out);
         if (finalOut.endsWith(".0")){
             output.setText(finalOut.substring(0,finalOut.length()-2));
         }
         else{
             output.setText(finalOut);
         }
+    }
+    
+    private String getAnswer(String out){
+        pemdas = new Pemdas();
+        return pemdas.getAnswer(out);
     }
     
     private void empty(){
@@ -235,4 +236,9 @@ public class GUI
         String newOutput = output.getText().substring(0,output.getText().length()-1);
         output.setText(newOutput);
     }
+    
+    public static void main(String args[]){
+        new GUI();
+    }
+ 
 }

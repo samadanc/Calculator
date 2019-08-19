@@ -1,9 +1,8 @@
-
 /**
  * Write a description of class Operators here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author (Samad alias Nyein Chan)
+ * @version (18th August 2019)
  */
 public class Operators
 {

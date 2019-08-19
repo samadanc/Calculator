@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 /**
  * Write a description of class Test here.
@@ -28,6 +29,13 @@ public class Test
     public void sampleMethod()
     {
         // put your code here
-        System.out.println(n);
+        ArrayList<Integer> al = new ArrayList<>();
+        for(int i=0; i<=15; i++){
+            al.add(i);
+            if(i==5){
+                al.remove(i);
+            }
+        }
+        al.forEach(elem -> System.out.println(elem));
     }
 }
